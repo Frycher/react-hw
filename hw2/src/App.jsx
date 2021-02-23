@@ -89,11 +89,7 @@ const App = () => {
             Reset
           </Button>
         </div>
-        {stopValue.map((item) => {
-          <div className="list__body">
-            {item}
-          </div>
-        })}
+        {stopValue.join(' : ')}
       </div>
     </div>
   );
