@@ -1,0 +1,45 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+.wrapp {
+  text-align: center;
+}
+.timer {
+  margin-bottom: 20px;
+  font-size:40px;
+  font-weight: bold;
+}
+.button {
+  width: 100px;
+  height: 50px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+  margin-right: 10px;
+  color: #fff;
+  font-size: 20px;
+}
+.button.start {
+  background-color: green;
+}
+.button.continue {
+  background-color: violet;
+}
+.button.stop {
+  background-color: tomato;
+}
+.button.reset{
+  background-color: burlywood;
+}
+.btn__wrapp {
+  display: flex;
+  align-items: center;
+}
+.time__list {
+  display: flex;
+  flex-direction: column;
+}
