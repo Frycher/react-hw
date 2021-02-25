@@ -43,3 +43,12 @@
   display: flex;
   flex-direction: column;
 }
+.stop_value_list {
+  list-style: none;
+  border: 1px solid #e2e2e2;
+  padding: 0;
+}
+.stop_value_list li {
+  font-size: 18px;
+  font-weight: bold;
+}
