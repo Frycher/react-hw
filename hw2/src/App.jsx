@@ -9,9 +9,11 @@ const Button = ({ children, className, ...props }) => {
   );
 };
 const App = () => {
-  const [second, setSecond] = useState('00');
-  const [minute, setMinute] = useState('00');
-  const [hours, setHours] = useState('00');
+  const [times, setTimes] = useState({
+    second: '00',
+    minute: '00',
+    hours: '00'
+  });
   const [isActive, setIsActive] = useState(false);
   const [isShowContinue, setIsShowContinue] = useState(false);
   const [counter, setCounter] = useState(0);
@@ -37,11 +39,13 @@ const App = () => {
         let hours =
           String(hoursCounter).length === 1 ? `0${hoursCounter}` : hoursCounter;
 
-        setSecond(second);
-        setMinute(minute);
-        setHours(hours);
+        setTimes({
+          second,
+          minute,
+          hours
+        });
 
-        setCounter(counter + 1); // (counter) => ??
+        setCounter(counter + 1); 
       }, 0);
     }
 
@@ -53,28 +57,30 @@ const App = () => {
     setIsActive(false);
     isActive && setIsShowContinue(true);
     isActive &&
-      setStopValue((oldArray) => [...oldArray, hours, minute, second]);
+      setStopValue((oldArray) => [...oldArray, `${times.hours} : ${times.minute} : ${times.second}`]);
   };
   const handleStart = () => {
     setIsActive(true);
     setIsShowContinue(false);
   };
   const handleReset = () => {
-    setSecond('00');
-    setMinute('00');
-    setHours('00');
+    setTimes({
+      second: '00', 
+      minute: '00', 
+      hours: '00', 
+    })
     setIsActive(false);
     setIsShowContinue(false);
     setCounter(0);
     isActive &&
-      setStopValue((oldArray) => [...oldArray, hours, minute, second]);
+      setStopValue((oldArray) => [...oldArray, `${times.hours} : ${times.minute} : ${times.second}`]);
   };
 
   return (
     <div className="App">
       <div className="wrapp">
         <div className="timer">
-          {hours} : {minute} : {second}
+          {times.hours} : {times.minute} : {times.second}
         </div>
         <div className="btn__wrapp">
           <Button
@@ -89,7 +95,11 @@ const App = () => {
             Reset
           </Button>
         </div>
-        {stopValue.join(' : ')}
+        <ul className={"stop_value_list"}>
+          {
+            stopValue.map(val => <li>{val}</li>)
+          }
+        </ul>
       </div>
     </div>
   );
