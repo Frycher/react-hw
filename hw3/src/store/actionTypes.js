@@ -1,0 +1,5 @@
+export const actionTypes = {
+  NEXT_STEP: 'NEXT_STEP',
+  PREVIOUS_STEP: 'PREVIOUS_STEP',
+  SET_DATA_VALUE: 'SET_DATA_VALUE',
+};
